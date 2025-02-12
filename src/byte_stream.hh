@@ -25,6 +25,8 @@ protected:
   // Please add any additional state to the ByteStream here, and not to the Writer and Reader interfaces.
   uint64_t capacity_;
   bool error_ {};
+  bool is_closed_ {};
+  bool is_finished_ {};
 };
 
 class Writer : public ByteStream
