@@ -29,7 +29,6 @@ protected:
   uint64_t bytes_popped_;
   bool error_ {};
   bool is_closed_ {};
-  bool is_finished_ {};
   std::string buf_;
 };
 
