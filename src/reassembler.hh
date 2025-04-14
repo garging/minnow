@@ -9,7 +9,8 @@ class Reassembler
 {
 public:
   // Construct Reassembler to write into given ByteStream.
-  explicit Reassembler( ByteStream&& output ) : output_( std::move( output ) ), pending_data({}) {std::cout<<"==== reassembler initialized with capacity:"<<output.writer().available_capacity();}
+  explicit Reassembler( ByteStream&& output ) : output_( std::move( output ) ), pending_data({}) {
+    std::cout<<"==== reassembler initialized with capacity:"<<output.writer().available_capacity()<<std::endl;}
 
   /*
    * Insert a new substring to be reassembled into a ByteStream.
@@ -46,5 +47,5 @@ public:
 
 private:
   ByteStream output_;
-  std::list<std::pair<uint64_t, std::string>> pending_data;
+  std::list<std::tuple<uint64_t, std::string, bool> > pending_data;
 };
